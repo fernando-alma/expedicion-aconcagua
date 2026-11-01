@@ -166,7 +166,7 @@ async function mountScreen(content, { className = '' } = {}) {
   clear(container);
   const screen = h('section', { class: `screen screen-enter ${className}`.trim() });
   if (typeof content === 'string') screen.innerHTML = content;
-  else screen.append(...[].concat(content));
+  else screen.append(...[].concat(content).filter((c) => c !== null && c !== undefined && c !== false));
   container.append(screen);
   container.scrollTop = 0;
   window.scrollTo({ top: 0 });

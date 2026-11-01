@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2D9CDB">
+  <meta name="description" content="Expedición Aconcagua: un videojuego de matemática para chicos de 1° a 7° grado. ¡Sumá, restá, multiplicá y llegá a la cumbre!">
+  <title>Expedición Aconcagua</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M4 54 26 14l12 20 8-12 14 32z' fill='%232D9CDB'/%3E%3Cpath d='M26 14l-7 12 7-3 5 4 2-6z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/levels.css">
+</head>
+<body>
+  <!-- Fondo decorativo: montañas en SVG inline (sin imágenes externas) -->
+  <div class="sky-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1210" cy="90" r="46" fill="#F2C94C" opacity=".85"/>
+      <circle cx="1210" cy="90" r="70" fill="#F2C94C" opacity=".18"/>
+      <path d="M-40 400V250l170-120 130 90 150-140 190 170 140-100 170 110 160-120 190 160 180-60v260z" fill="#CFE8F8"/>
+      <path d="M-40 400V300l140-90 120 80 180-130 200 150 150-90 190 120 170-110 200 130v140z" fill="#A9D6F1"/>
+      <path d="M430 118l-52 40 30-8 22 22 20-18 24 16z" fill="#fff" opacity=".9"/>
+      <path d="M-40 400v-60l200-60 220 50 240-40 260 50 250-40 300 50v100z" fill="#BFE8CF"/>
+      <path d="M-40 400v-30l260-30 260 26 300-22 280 26 300-20v50z" fill="#8ED3A8"/>
+    </svg>
+  </div>
+
+  <div id="app" class="app">
+    <header id="hud" class="hud" hidden></header>
+    <main id="game-container" class="game-container" aria-live="polite"></main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+
+  <noscript>
+    <p style="padding:2rem;font-family:sans-serif;text-align:center">
+      Para jugar a Expedición Aconcagua necesitás activar JavaScript en tu navegador.
+    </p>
+  </noscript>
+
+  <script type="module" src="js/core/app.js"></script>
+</body>
+</html>

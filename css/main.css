@@ -1,0 +1,168 @@
+/* ==========================================================
+   main.css — Variables, tipografía, reset y layout base
+   Expedición Aconcagua · Soft UI infantil
+   ========================================================== */
+
+:root {
+  /* Paleta temática Aconcagua */
+  --c-primary: #2D9CDB;
+  --c-primary-600: #1F82BD;
+  --c-primary-100: #DCEFFB;
+  --c-secondary: #27AE60;
+  --c-secondary-600: #1E8F4E;
+  --c-secondary-100: #DDF5E7;
+  --c-accent: #F2C94C;
+  --c-accent-600: #D9A91F;
+  --c-accent-100: #FDF3CF;
+  --c-danger: #EB5757;
+  --c-danger-600: #C93F3F;
+  --c-danger-100: #FDE3E3;
+
+  --c-bg: #F2F9FF;
+  --c-surface: #FFFFFF;
+  --c-ink: #23405A;        /* texto principal (azul profundo, nunca negro duro) */
+  --c-ink-soft: #5B7A93;
+  --c-line: #D8E8F4;
+
+  /* Formas */
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 32px;
+  --radius-xl: 44px;
+  --radius-pill: 999px;
+
+  /* Sombras de colores */
+  --shadow-soft: 0 10px 30px rgba(45, 156, 219, .18);
+  --shadow-card: 0 14px 34px rgba(35, 64, 90, .12);
+  --shadow-primary: 0 10px 22px rgba(45, 156, 219, .38);
+  --shadow-secondary: 0 10px 22px rgba(39, 174, 96, .36);
+  --shadow-accent: 0 10px 22px rgba(242, 201, 76, .5);
+  --shadow-danger: 0 10px 22px rgba(235, 87, 87, .36);
+
+  /* Tipografía */
+  --font-title: 'Fredoka One', 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Espaciado */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* Transiciones */
+  --ease-soft: cubic-bezier(.34, 1.56, .64, 1);
+  --t-fast: .15s;
+  --t-base: .25s;
+}
+
+/* ---------- Reset moderno ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body, h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--c-ink);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 400;       /* Fredoka One ya es bold */
+  line-height: 1.15;
+  letter-spacing: .01em;
+}
+
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+img, svg { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 4px solid rgba(45, 156, 219, .45);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- Fondo decorativo ---------- */
+.sky-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #E6F4FF 0%, var(--c-bg) 55%, #F7FCFF 100%);
+}
+.sky-bg svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 46vh;
+  min-height: 220px;
+}
+
+/* ---------- Layout ---------- */
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
+  gap: var(--space-4);
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Utilidades de texto */
+.text-center { text-align: center; }
+.text-soft { color: var(--c-ink-soft); }
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive base */
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .app { padding: var(--space-4) var(--space-4) var(--space-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

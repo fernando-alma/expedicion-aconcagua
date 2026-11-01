@@ -1,7 +1,7 @@
 /* ==========================================================
    level1.js — Nivel 1 · Campamento Base (1° grado)
    Sumas simples y conteo visual hasta 100.
-   Mecánica: armar una mochila con exactamente N mosquetones
+   Mecánica: armar una mochila con exactamente N ganchos
    usando cajas (módulos de 1, 5 y 10) por clic o arrastre.
    ========================================================== */
 
@@ -13,7 +13,7 @@ const DRAG_THRESHOLD = 6;     // px de movimiento para diferenciar arrastre de c
 const WIN_DELAY = 700;        // ms antes de pasar a la ronda siguiente
 const FRAME_COLS = 10;        // "marco de 10": casilleros por fila
 const MAX_EXTRA = 30;         // cuánto se puede pasar del objetivo
-const MAX_CAPACITY = 130;     // tope absoluto de mosquetones en la mochila
+const MAX_CAPACITY = 130;     // tope absoluto de ganchos en la mochila
 const GHOST_W = 88;
 const GHOST_H = 70;
 
@@ -23,7 +23,7 @@ const MODULES = {
   10: { crate: '#8CCBF2', cara: '#2D9CDB' },
 };
 
-const noun = (n) => (n === 1 ? 'mosquetón' : 'mosquetones');
+const noun = (n) => (n === 1 ? 'gancho' : 'ganchos');
 
 /** Ronda 1 siempre 14; las otras varían en cada partida. */
 function buildRounds() {
@@ -46,12 +46,12 @@ export default {
   id: 1,
   grade: '1°',
   title: 'Campamento Base',
-  subtitle: 'Armá la mochila contando mosquetones',
+  subtitle: 'Armá la mochila contando ganchos',
   available: true,
 
   icon() {
     return `
-<svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mochila con mosquetones">
+<svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mochila con ganchos">
   ${nest(Assets.backpack(), 22, 2, 76, 84)}
   ${nest(Assets.carabiner({ color: '#F2C94C' }), 4, 54, 28, 40)}
   ${nest(Assets.carabiner({ color: '#27AE60' }), 88, 54, 28, 40)}
@@ -136,7 +136,7 @@ export default {
 
     els.grid = h('div', { class: 'l1-frame__grid', role: 'img' });
     els.frame = h('section', { class: 'l1-frame', 'aria-label': 'Marco de 10' },
-      h('h3', { class: 'l1-frame__title' }, 'Contá los mosquetones'),
+      h('h3', { class: 'l1-frame__title' }, 'Contá los ganchos'),
       els.grid,
       h('p', { class: 'l1-frame__legend' }, 'Cada fila tiene 10 lugares.'));
 
@@ -298,7 +298,7 @@ export default {
       later(() => {
         if (last) {
           ctx.success({
-            message: 'Armaste tres mochilas con la cantidad justa de mosquetones. ¡Contás como un verdadero montañista!',
+            message: 'Armaste tres mochilas con la cantidad justa de ganchos. ¡Contás como un verdadero montañista!',
           });
         } else {
           startRound(roundIdx + 1);

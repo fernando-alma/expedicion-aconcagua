@@ -41,14 +41,14 @@ export const Assets = {
 
   carabiner({ color = '#F2C94C' } = {}) {
     return `
-<svg viewBox="0 0 40 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mosquetón">
+<svg viewBox="0 0 40 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gancho">
   <rect x="7" y="5" width="26" height="46" rx="13" fill="none" stroke="${color}" stroke-width="7"/>
   <rect x="7" y="5" width="26" height="46" rx="13" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
   <path d="M29 18v16" stroke="#23405A" stroke-width="3" stroke-linecap="round" opacity=".35"/>
 </svg>`;
   },
 
-  /** Caja de suministros (para módulos de mosquetones, etc.) */
+  /** Caja de suministros (para módulos de ganchos, etc.) */
   crate({ color = '#F2C94C', label = '' } = {}) {
     return `
 <svg viewBox="0 0 120 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Caja de suministros">
